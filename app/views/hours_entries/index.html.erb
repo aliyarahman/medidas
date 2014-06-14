@@ -1,0 +1,35 @@
+<h1>Listing hours_entries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Evidence</th>
+      <th>Num hours</th>
+      <th>Shift start</th>
+      <th>Shift end</th>
+      <th>Submitted</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hours_entries.each do |hours_entry| %>
+      <tr>
+        <td><%= hours_entry.evidence %></td>
+        <td><%= hours_entry.num_hours %></td>
+        <td><%= hours_entry.shift_start %></td>
+        <td><%= hours_entry.shift_end %></td>
+        <td><%= hours_entry.submitted %></td>
+        <td><%= hours_entry.user_id %></td>
+        <td><%= link_to 'Show', hours_entry %></td>
+        <td><%= link_to 'Edit', edit_hours_entry_path(hours_entry) %></td>
+        <td><%= link_to 'Destroy', hours_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hours entry', new_hours_entry_path %>
